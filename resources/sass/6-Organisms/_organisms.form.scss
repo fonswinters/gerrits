@@ -1,0 +1,28 @@
+.o-form {}
+
+.o-form__header {
+	margin-bottom: var(--space-5);
+}
+
+.o-form__body {}
+
+.o-form__footer {
+	margin-top: var(--space-5);
+}
+
+.o-form__row {
+	& + & {
+		margin-top: 20px;
+	}
+}
+
+// A hidden wrapper for honey pot stuff
+.o-form__pot {
+	opacity: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 0;
+	width: 0;
+	z-index: -1;
+}

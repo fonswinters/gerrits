@@ -1,0 +1,37 @@
+.c-input {
+	--color:		var(--color-neutral-800);
+	--bg-color:		var(--color-neutral-0);
+	--border-color:	var(--color-neutral-300);
+	--focus-color:	var(--color-action-500);
+	--error-color:	var(--color-warning-500);
+	--border-size:	1px;
+
+	font-size: 1.5rem;
+	line-height: 1.6;
+	width: 100%;
+	padding-block: calc(var(--space-1) - var(--border-size));
+	padding-inline: var(--space-2);
+	color: var(--color);
+	background-color: var(--bg-color);
+	border: var(--border-size) solid var(--border-color);
+	border-radius: var(--radius-s);
+	outline: none;
+
+	.has-error & {
+		box-shadow: 0 0 7px -3px var(--error-color);
+		border-color: var(--error-color);
+		background-color: rgba(var(--error-color), 0.05);
+	}
+
+	&:focus {
+		box-shadow: 0 0 7px -3px var(--focus-color);
+		border-color: var(--focus-color);
+	}
+
+	@at-root textarea#{&} {
+		display: block;
+		min-height: 19rem;
+		padding: var(--space-2);
+		resize: vertical;
+	}
+}

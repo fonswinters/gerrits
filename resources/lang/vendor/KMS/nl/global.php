@@ -1,0 +1,26 @@
+<?php declare(strict_types=1);
+
+return [
+    'heroImages'           => 'afbeeldingen in de hero/header',
+    'homeHeroImages'       => 'afbeeldingen in de hero/header van de home',
+    'hero'                 => 'Intro',
+    'heroTitle'            => 'Titel',
+    'enterHeroTitle'       => 'Vul hier de titel voor de hero/header in',
+    'heroDescription'      => 'Omschrijving',
+    'enterHeroDescription' => 'Vul hier de omschrijving voor de hero/header in',
+    'defaultCalloutBar'    => 'Standaard Callout bar',
+    'calloutBar'           => 'Callout bar',
+    'calloutBarHeading'    => 'titel',
+    'calloutBarButton'     => 'knop',
+    'defaultServicePoint'  => 'Standaard Contactpersoon',
+    'servicePoint'         => 'Contactpersoon',
+    'servicePointHeading'  => 'titel',
+    'servicePointButton'   => 'knop',
+    'homeHero'             => 'Home hero',
+    'homeHeroTitle'        => 'titel',
+    'homeHeroVideoHeader'  => 'Home pagina video',
+    'homeHeroVideo'        => 'Home pagina video',
+    'formMailAddresses'    => 'E-mail adressen formulieren',
+    'contact_form'         => 'Contact formulier',
+    'vacancy_form'         => 'Vacature formulier',
+];

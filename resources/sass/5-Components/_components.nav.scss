@@ -1,0 +1,72 @@
+.c-nav {
+	height: 100%;
+	padding: 0;
+}
+
+
+.c-nav__list {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	margin-left: 0;
+	padding: 0;
+	list-style: none;
+}
+
+
+.c-nav__item {
+	white-space: nowrap;
+	margin-right: 2%;
+
+	&:last-child {
+		margin-right: 0;
+	}
+}
+
+
+.c-nav__link {
+	--link-padding: 4px;
+
+	@include disableOutlineForMouse;
+	position: relative;
+	padding: var(--link-padding);
+	font-weight: var(--fw, var(--fw-regular));
+	color: var(--color, var(--color-neutral-500));
+	text-decoration: none;
+	transition: color 150ms linear;
+
+	&::before {
+		content: '';
+		display: block;
+		position: absolute;
+		z-index: -1;
+		bottom: 1px;
+		left: var(--link-padding);
+		width: calc(100% - (2 * var(--link-padding)));
+		height: 2px;
+		border-radius: 1px;
+		background-color: var(--decoration-color, var(--color-secondary-500));
+		transform: scaleX(var(--decoration-scaleX, 0));
+		transform-origin: var(--decoration-transform-origin, bottom right);
+		transition: transform 300ms cubic-bezier(0.86, 0, 0.07, 1);
+	}
+
+	&:hover {
+		--color: var(--color-neutral-800);
+		--decoration-scaleX: 1;
+		--decoration-transform-origin: bottom left;
+	}
+
+	&.is-active {
+		--color: var(--color-neutral-1000);
+		--decoration-color:	var(--color-primary-700);
+		--decoration-scaleX: 1;
+		--decoration-transform-origin: bottom left;
+		--fw: var(--fw-semi-bold);
+	}
+
+	&:focus {
+		outline: 2px solid currentColor;
+		outline-offset: 1px;
+	}
+}

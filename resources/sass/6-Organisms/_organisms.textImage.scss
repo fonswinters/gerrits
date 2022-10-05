@@ -1,0 +1,42 @@
+.o-text-image {
+	@include mq(m, l, 'exclude') {
+		@include contain;
+	}
+
+	display: grid;
+	grid-row-gap: clamp(var(--space-4), 6vw, var(--space-8));
+	grid-template-areas: "i" "t";
+
+	@include mq(m) {
+		--right-block-pad: var(--space-10);
+
+		grid-template-columns: var(--g-container-gutter) 6fr 1fr 5fr var(--g-container-gutter);
+		grid-template-areas: ". t . i i";
+	}
+	@include mq(l) {
+		grid-template-columns: 1fr 4fr 1fr 6fr;
+		grid-template-areas: ". t . i";
+	}
+}
+
+
+.o-text-image--is-reversed {
+	@include mq(m) {
+		grid-template-columns: var(--g-container-gutter) 5fr 1fr 6fr var(--g-container-gutter);
+		grid-template-areas: "i i . t .";
+	}
+	@include mq(l) {
+		grid-template-columns: 6fr 1fr 4fr 1fr;
+		grid-template-areas: "i . t .";
+	}
+}
+
+
+.o-text-image__t {
+	grid-area: t;
+	margin-block: var(--right-block-pad);
+}
+
+.o-text-image__i {
+	grid-area: i;
+}

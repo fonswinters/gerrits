@@ -1,0 +1,17 @@
+.o-team {
+	@include contain;
+	margin-block: clamp(var(--space-5), 7vw, var(--space-12));
+}
+
+
+.o-team__matrix {
+	@include grid-min-max-cols(1, 4, 276px, clamp(var(--space-2), 4vw, var(--space-7)), var(--space-2));
+}
+
+
+.o-team__item {
+	--max-size: 400px;
+
+	width: min(var(--max-size), 100%);
+	margin-inline: auto;
+}

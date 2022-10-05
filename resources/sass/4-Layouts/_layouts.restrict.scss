@@ -1,0 +1,12 @@
+/*==========================================================================
+ * Restrict
+ *
+ * When a block shouldn't take up the whole width of the container
+ * we can restrict the maximum width
+ * ========================================================================== */
+
+.l-restrict {
+	--max-columns: 10;
+	width: min(var(--max-columns) * var(--g-column-max-width), 100%);
+	margin-inline: auto;
+}

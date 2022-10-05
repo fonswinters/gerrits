@@ -1,0 +1,19 @@
+.o-vacancy-process {
+	@include contain;
+	display: grid;
+	grid-row-gap: clamp(var(--space-4), 6vw, var(--space-8));
+	grid-template-areas: "p" "s";
+
+	@include mq(m) {
+		grid-template-columns: 5fr 1fr 6fr;
+		grid-template-areas: "p . s";
+	}
+}
+
+.o-vacancy-process__p {
+	grid-area: p;
+}
+
+.o-vacancy-process__s {
+	grid-area: s;
+}

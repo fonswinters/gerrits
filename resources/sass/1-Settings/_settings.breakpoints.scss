@@ -1,0 +1,15 @@
+/* ============================================
+   Define breakpoints for given formats
+   ============================================ */
+
+
+// Default breakpoints
+
+$breakpoints: (
+	s: 384,
+	m: 840,
+	l: 1152,
+);
+
+// Determine at which viewport size we can fit in a horizontal menu instead of the hamburger menu toggle
+$bp-header-large: 1100;

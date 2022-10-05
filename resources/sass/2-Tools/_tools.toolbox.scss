@@ -1,0 +1,91 @@
+/* =============================================
+   Toolbox functions
+   ================================================ */
+
+
+/* Gives the children of the element spacing
+ * - Lobotomized owl selector.
+ * - Gives the children of the element spacing
+ * - https://alistapart.com/article/axiomatic-css-and-lobotomized-owls
+ */
+@mixin stack($gap: var(--space-3)) {
+	& > * + * {
+		margin-top: $gap;
+	}
+}
+
+
+/**
+ *  Show hyphens for every browser supporting it
+ *  and will break lines in every other browser
+ */
+
+@mixin hyphenate {
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+	-webkit-hyphens: auto;
+	-ms-hyphens: auto;
+	hyphens: auto;
+}
+
+
+// when hover or active disable outline styling
+@mixin disableOutlineForMouse {
+	&:hover,
+	&:active {
+		outline: none !important;
+	}
+}
+
+
+
+/*
+ *  Restrict an element to a max-width for creating gutters on the side
+ */
+
+@mixin contain {
+	width: min(100% - (2 * var(--g-container-gutter)), var(--g-container-max-width));
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+// For explanation how this works: https://stackoverflow.com/questions/52417889/setting-minimum-and-maximum-number-of-columns-using-css-grid
+@mixin grid-min-max-cols($min-cols, $max-cols, $cols-min-width, $grid-row-gap: 0px, $grid-column-gap: 0px) {
+	--min-cols: #{$min-cols};
+	--max-cols: #{$max-cols};
+	--cols-min-width: #{$cols-min-width};
+	--grid-row-gap: #{$grid-row-gap};
+	--grid-column-gap: #{$grid-column-gap};
+
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(min((100%/var(--min-cols) - var(--grid-column-gap)*(var(--min-cols) - 1)/var(--min-cols)), max(var(--cols-min-width), (100%/var(--max-cols) - var(--grid-column-gap)*(var(--max-cols) - 1)/var(--max-cols)))), 1fr));
+	gap: $grid-row-gap $grid-column-gap;
+}
+
+
+/*
+ *	A mixin to set elements to its own named grid-area
+ */
+
+@mixin template($elements...) {
+	@each $element in $elements {
+		&__#{$element} {
+			grid-area: $element;
+			display: block; // In IE grid items can't be inline
+		}
+	}
+}
+
+
+/*  Convert a CSS color value to comma-delimited hsl values
+	-------------------------------------------------------
+	In:     - hsl(0, 0%, 0%)
+			- #000000
+			- black
+	Out:    - 0,0,0
+	-------------------------------------------------------
+*/
+@function derive-hsl-values($color) {
+	@return hue($color), saturation($color), lightness($color);
+}

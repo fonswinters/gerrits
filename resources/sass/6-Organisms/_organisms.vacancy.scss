@@ -1,0 +1,30 @@
+.o-vacancy__hero {
+	position: relative;
+	margin-bottom: calc(var(--space-2) + var(--space-2));
+
+	@include mq(l) {
+	    @include contain;
+	}
+
+	&::before {
+		position: absolute;
+		z-index: -1;
+	    content: '';
+	    top: 0;
+	    bottom: 0;
+	    right: -50vw;
+	    left: -50vw;
+		background-color: var(--color-primary-700);
+	}
+}
+
+.o-vacancy__hero-img {
+	width: 100%;
+	height: auto;
+}
+
+
+.o-vacancy__properties {
+	@include contain;
+	margin-top: calc(var(--space-2) * -1);
+}

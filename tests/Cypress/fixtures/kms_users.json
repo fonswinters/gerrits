@@ -1,0 +1,30 @@
+[
+  {
+    "first_name": "Komma",
+    "last_name": "Admin",
+    "phone": "31 (0)495 59 94 11",
+    "street": "Randweg-zuid",
+    "house_number": 1,
+    "postal_code": "6021PW",
+    "city": "Budel",
+    "gender": "Male",
+    "country": "Nederland",
+    "language": "Nederlands",
+    "email": "support@komma.nl",
+    "password": "$tilD3H0nger10"
+  },
+  {
+    "first_name": "Komma",
+    "last_name": "Super admin",
+    "phone": "31 (0)495 59 94 11",
+    "street": "Randweg-zuid",
+    "house_number": 1,
+    "postal_code": "6021PW",
+    "city": "Budel",
+    "gender": "Male",
+    "country": "Nederland",
+    "language": "Nederlands",
+    "email": "info@komma.nl",
+    "password": "$tilD3H0nger10"
+  }
+]

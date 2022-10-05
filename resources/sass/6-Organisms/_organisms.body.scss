@@ -1,0 +1,11 @@
+ /*
+ * Wrapper of the main body
+ * (between the header and the footer)
+ */
+
+
+.o-body {
+	@include z(z-body);
+	position: relative;
+	flex: 0 0 auto;
+}

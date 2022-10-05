@@ -1,0 +1,30 @@
+/** =====================================================================================
+ *  Lists
+ ===================================================================================== */
+
+
+/**
+ *	Default indentation value for lists
+ */
+
+ul,
+ol {
+	padding: 0;
+	margin: 0 0 0 1.125em;
+}
+
+dd {
+	margin-left: 0;
+}
+
+
+/**
+ *	Remove extra vertical spacing when nesting lists.
+ */
+
+li {
+	> ul,
+	> ol {
+		margin-bottom: 0;
+	}
+}

@@ -1,0 +1,17 @@
+.u-placeholder-image {
+	height: 100% !important;
+	width: 100% !important;
+	object-fit: cover !important;
+}
+
+
+.u-flex {
+	display: flex;
+	align-items: center;
+	gap: var(--gap);
+}
+
+
+.u-flex--gap {
+	--gap: var(--space-1);
+}

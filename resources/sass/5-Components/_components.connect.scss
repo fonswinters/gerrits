@@ -1,0 +1,53 @@
+.c-connect {
+	--breakpoint:   500px; // !CONTAINER! width
+	--modifier:     calc(var(--breakpoint) - 100%);
+	--color:		var(--color-neutral-800);
+	--color-or:	    var(--color-neutral-500);
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: var(--space-2);
+
+	& > * {
+		flex-grow: 1;
+		flex-basis: calc(var(--modifier) * 999);
+		max-width: max-content;
+		display: flex;
+		flex-direction: column;
+	}
+}
+
+
+.c-connect__phone {
+	align-items: flex-end;
+	font-size: 1.8rem;
+	line-height: 1.77777778;
+	font-weight: var(--fw-bold);
+	text-decoration: none;
+	color: var(--color);
+	transition: opacity 300ms;
+
+	&:hover {
+		opacity: 0.7;
+		text-decoration: underline;
+	}
+
+	&:focus {
+		outline: 2px solid currentColor;
+		outline-offset: 1px;
+	}
+}
+
+
+.c-connect__or {
+	max-width: initial;
+	flex-grow: 0;
+	color: var(--color-or);
+}
+
+
+.c-connect__action {
+	align-items: flex-start;
+}

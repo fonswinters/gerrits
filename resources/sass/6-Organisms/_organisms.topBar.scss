@@ -1,0 +1,32 @@
+.o-top-bar {
+	color: var(--color-neutral-0);
+	background-color: var(--color-neutral-1000);
+
+	@include mq($max: $bp-header-large) {
+		display: none;
+	}
+}
+
+.o-top-bar__main {
+	@include contain;
+	text-align: right;
+}
+
+.o-top-bar__list {
+	list-style: none;
+	margin-left: 0;
+	padding: var(--space-1) 0;
+}
+
+.o-top-bar__link {
+	font-size: 1.4rem;
+	line-height: 1.14285714;
+	display: inline-block;
+	padding: var(--space-1) 0;
+	text-decoration: none;
+	color: currentColor;
+
+	&:hover {
+		text-decoration: underline;
+	}
+}

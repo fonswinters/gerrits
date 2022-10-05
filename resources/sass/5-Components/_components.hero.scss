@@ -1,0 +1,148 @@
+.c-hero {
+	--bg-color:		hsl(var(--color-neutral-900-hsl), 0.6);
+	--color:		var(--color-neutral-0);
+
+	@include mq(l) {
+		@include contain;
+	}
+}
+
+.c-hero__main {
+	position: relative;
+	display: grid;
+	grid-template-rows: 1fr auto;
+	grid-template-columns: auto;
+	background-color: var(--color-neutral-0);
+	min-height: min(23vh, 640px);
+}
+
+.c-hero__slider {
+	grid-column: 1;
+	grid-row: 1 / -1;
+	overflow: hidden;
+	position: relative;
+	display: grid;
+}
+
+.c-hero__picture {
+	grid-area: 1/1/1/1;
+	opacity: 0;
+	transition-property: opacity, filter;
+	transition-duration: 300ms;
+	transition-timing-function: linear;
+
+	&.is-active {
+		opacity: 1;
+		transform: translateY(0) scale(1);
+	}
+}
+
+.c-hero__image {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.c-hero__caption {
+	grid-column: 1;
+	grid-row: 2;
+	position: relative;
+
+	@include mq(m) {
+		max-width: 50%;
+
+		&::before {
+			content: '';
+			position: absolute;
+			z-index: -1;
+			top: 0;
+			bottom: 0;
+			right: -100vw;
+			left: -100vw;
+			height: 100%;
+			background-color: var(--g-main-band-color);
+		}
+	}
+}
+
+.c-hero__caption-inner {
+	font-size: clamp(calc(16px + 1vw), 3.5vw, 4.8rem);
+	font-weight: var(--fw-bold);
+	line-height: 1.2;
+	text-align: center;
+	padding-block: clamp(var(--space-1), 2.6vw, var(--space-3));
+	padding-inline: var(--g-container-gutter);
+	color: var(--color);
+	background-color: var(--bg-color);
+	backdrop-filter: blur(6px);
+
+	@include mq(m) {
+		text-align: left;
+	}
+
+	@include mq(l) {
+		padding-left: var(--space-6);
+	}
+}
+
+
+.c-hero__controls {
+	grid-row: 1;
+	grid-column: 1;
+	align-self: end;
+	z-index: 1;
+	padding: var(--space-1);
+
+	&::before {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		height: var(--space-5);
+		width: 100%;
+		background: linear-gradient(to top, black, transparent);
+		opacity: 0.3;
+	}
+}
+
+
+// Button with arrow that scrolls down
+.c-hero__scroll {
+	@include mq($max: m) {
+		display: none;
+	}
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	width: 40px;
+	height: 40px;
+	padding: 10px;
+	color: var(--color-neutral-0);
+	background-color: var(--color-secondary-500);
+	border-radius: 100%;
+	transform: translate(-50%, 50%) rotate(0.25turn);
+	transition: background-color 200ms;
+
+	& > svg {
+		transition: transform 200ms;
+	}
+
+	&:hover {
+		cursor: pointer;
+		background: var(--color-secondary-700);
+
+		& > svg {
+			transform: translateX(3px);
+		}
+	}
+
+	&:focus {
+		outline: none;
+		background: var(--color-secondary-700);
+		box-shadow: 0 0 0 3px var(--color-secondary-700);
+	}
+}

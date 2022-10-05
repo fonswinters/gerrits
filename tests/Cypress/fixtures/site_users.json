@@ -1,0 +1,16 @@
+[
+  {
+    "first_name": "Komma",
+    "last_name": "Customer",
+    "phone": "31 (0)495 59 94 11",
+    "street": "Randweg-zuid",
+    "house_number": 1,
+    "postal_code": "6021PW",
+    "city": "Budel",
+    "gender": "Male",
+    "country": "Nederland",
+    "language": "Nederlands",
+    "email": "customer@komma.nl",
+    "password": "Customer123"
+  }
+]

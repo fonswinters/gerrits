@@ -1,0 +1,21 @@
+@each $name, $size in $spacing {
+	$selectorName: $name;
+
+	@if(type-of($selectorName) != 'number') {
+		$selectorName: '-' + $selectorName;
+	}
+
+	// Margin (positive)
+	.u-space-m#{$selectorName}    { margin: var(--space-#{$name}) !important; }
+	.u-space-mt#{$selectorName}   { margin-top: var(--space-#{$name}) !important; }
+	.u-space-mr#{$selectorName}   { margin-right: var(--space-#{$name}) !important; }
+	.u-space-mb#{$selectorName}   { margin-bottom: var(--space-#{$name}) !important; }
+	.u-space-ml#{$selectorName}   { margin-left: var(--space-#{$name}) !important; }
+
+	// Padding
+	.u-space-p#{$selectorName}    { padding: var(--space-#{$name}) !important; }
+	.u-space-pt#{$selectorName}   { padding-top: var(--space-#{$name}) !important; }
+	.u-space-pr#{$selectorName}   { padding-right: var(--space-#{$name}) !important; }
+	.u-space-pb#{$selectorName}   { padding-bottom: var(--space-#{$name}) !important; }
+	.u-space-pl#{$selectorName}   { padding-left: var(--space-#{$name}) !important; }
+}

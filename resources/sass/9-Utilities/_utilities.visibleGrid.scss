@@ -1,0 +1,42 @@
+/* ==========================================================================
+ * This grid can be turned on and off when you want to check
+ * if everything is nice in place.
+ * Set flag 'showGrid' to true in site.php
+ * ========================================================================== */
+
+
+
+// Color: Set a hue value that has enough contrast
+
+.u-visible-grid {
+	--vg-hue1: 				10; // 0-360
+	--vg-hue2: 				10;
+	--vg-column-count: 		12;
+	--vg-column-width:      calc((1 / #{var(--vg-column-count)}) * 100%);
+	--vg-color-1:           hsla(var(--vg-hue1), 100%, 50%, 0.06);
+	--vg-color-2:           hsla(var(--vg-hue2), 100%, 50%, 0.02);
+
+	@include z(z-visible-grid);
+	@include contain;
+	position: fixed;
+	left: 0;
+	right: 0;
+	pointer-events: none;
+
+	@include mq(m, l) {
+		padding: 0;
+	}
+}
+
+
+.u-visible-grid__main {
+	height: 100vh;
+	background: repeating-linear-gradient(
+			to right,
+			var(--vg-color-1),
+			var(--vg-color-1) var(--vg-column-width),
+			var(--vg-color-2) var(--vg-column-width),
+			var(--vg-color-2) calc(#{var(--vg-column-width)} * 2)
+	);
+
+}

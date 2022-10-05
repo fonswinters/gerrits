@@ -1,0 +1,22 @@
+.c-form-group__label {
+	font-size: 1.5rem;
+	line-height: 1.6;
+	display: block;
+	padding: var(--space-small) 0;
+	color: var(--color-neutral-400);
+}
+
+.c-form-group__error {
+	display: none;
+
+	.has-error &:not(:empty) {
+		font-size: 1.4rem;
+		display: block;
+		padding: var(--space-1);
+		color: var(--color-neutral-1000);
+		background-color: hsl(var(--color-warning-500-hsl), 0.3);
+		border: 1px solid var(--color-warning-500);
+		border-top: none;
+		border-radius: 0 0 var(--radius-s) var(--radius-s);
+	}
+}

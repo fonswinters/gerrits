@@ -1,0 +1,24 @@
+.o-content-personal {
+	@include contain;
+	display: grid;
+	grid-row-gap: clamp(var(--space-4), 6vw, var(--space-8));
+	grid-template-areas: "left" "right";
+
+	@include mq(m) {
+		grid-template-columns: 4fr 1fr 3fr;
+		grid-template-areas: "left . right";
+	}
+	@include mq(l) {
+		grid-template-columns: 1fr 4fr 1fr 1fr 5fr;
+		grid-template-areas: ". left . . right";
+	}
+}
+
+
+.o-content-personal__left {
+	grid-area: left;
+}
+
+.o-content-personal__right {
+	grid-area: right;
+}

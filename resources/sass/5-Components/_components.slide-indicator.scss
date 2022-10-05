@@ -1,0 +1,106 @@
+.c-slide-indicator {
+	--dot-color:				var(--color-neutral-0);
+	--dot-ring-color:	        var(--color-neutral-0); // visible when active
+	--dot-size-targetbox:		30px;
+	--dot-size:					8px;
+	--dot-is-rounded:			1; // foolean (0 or 1)
+
+	--button-size:				var(--space-4);
+	--button-bg-color:			hsl(var(--color-neutral-800-hsl), 0.6);
+	--button-bg-color-hover:	var(--color-neutral-800);
+	--button-icon-color:		var(--color-neutral-0);
+
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+
+.c-slide-indicator__button {
+	position: relative;
+	height: var(--button-size);
+	width: var(--button-size);
+	background-color: var(--button-bg-color);
+	color: var(--button-icon-color);
+	border: none;
+	border-radius: 2px;
+	transform: rotate(90deg);
+
+	& + & {
+		margin-left: var(--space-1);
+	}
+
+	&[aria-label='next'] {
+		transform: rotate(-90deg);
+	}
+
+	&:hover,
+	&:focus {
+		outline: none;
+		cursor: pointer;
+		--button-bg-color: var(--button-bg-color-hover);
+	}
+}
+
+
+.c-slide-indicator__dot {
+	position: relative;
+	display: inline-block;
+	width: var(--dot-size-targetbox);
+	height: var(--dot-size-targetbox);
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+	outline: none;
+	transition-property: background-color, opacity;
+	transition-duration: 200ms;
+
+	&:before,
+	&:after {
+		content: '';
+		position: absolute;
+		inset: calc((var(--dot-size-targetbox) - var(--dot-size)) / 2);
+		background-clip: content-box;
+		transition-property: transform, background-color, opacity;
+		transition-duration: 0.3s;
+		transition-timing-function: ease-in-out;
+		border-radius: calc(var(--dot-is-rounded) * 100%);
+	}
+
+	&:before {
+		opacity: var(--dot-opacity, 1);
+		background-color: var(--dot-color);
+		transform: scale(var(--dot-scale));
+		box-shadow: var(--dot-box-shadow);
+	}
+
+	&:after {
+		border: 1px solid var(--dot-ring-color);
+		opacity: var(--dot-ring-border-opacity, 0);
+		transform: scale(var(--dot-ring-border-scale));
+		box-shadow: var(--dot-ring-box-shadow);
+	}
+
+	&:active {
+		--dot-box-shadow: none;
+		--dot-ring-box-shadow: none;
+	}
+
+	&:hover {
+		--dot-scale: 1.2;
+		--dot-color: var(--color-neutral-200);
+	}
+
+	&:focus:not(.is-active) {
+		--dot-opacity: 1;
+		--dot-box-shadow: 0 0 0 2px hsl(0, 0%, 0%, 0.5), 0 0 10px 1px white;
+		--dot-ring-box-shadow: 0 0 0 2px hsl(0, 0%, 0%, 0.5), 0 0 10px 1px white;
+	}
+
+	&.is-active {
+		--dot-ring-border-opacity: 1;
+		--dot-ring-border-scale: 1.5;
+		--dot-color: var(--color-secondary-500);
+		--dot-scale: 0.75;
+	}
+}

@@ -1,0 +1,118 @@
+.c-toggle {
+	--border-color: var(--color-neutral-300);
+	--icon-color: var(--color-neutral-800);
+	--icon-size: 20px;
+	--icon-gap: var(--space-2);
+
+	--hover-color: var(--color-neutral-900);
+	--transition-duration: 250ms;
+	--transition-ease: ease-out;
+
+	@include stack(var(--space-2));
+	list-style: none;
+	margin-left: 0;
+}
+
+
+.c-toggle__item {
+	border: 1px solid var(--border-color);
+	border-radius: var(--radius-m);
+	padding-block: var(--space-2);
+	padding-inline: var(--space-3);
+	transition: all var(--transition-duration);
+
+	&.is-clickable {
+		--label-cursor: pointer;
+
+		&:hover {
+			--label-color: var(--color-primary-500);
+			--icon-color: var(--color-primary-500);
+		}
+	}
+
+	&.is-active {
+		--label-top-padding: var(--space-2);
+		--icon-after-opacity: 0;
+		--icon-rotation: 90deg;
+	}
+}
+
+
+// This is the trigger
+.c-toggle__title {
+	display: flex;
+	align-items: flex-start;
+	position: relative;
+	cursor: var(--label-cursor, default);
+	padding-top: var(--label-top-padding);
+	transition: all var(--transition-duration) var(--transition-ease);
+}
+
+
+.c-toggle__icon {
+	--l: 10px;
+	--w: 2px;
+
+	width: var(--icon-size);
+	height: var(--icon-size);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-right: var(--icon-gap);
+	color: var(--icon-color);
+	border: 2px solid var(--icon-color);
+	border-radius: 50%;
+
+	&::before,
+	&::after {
+		position: absolute;
+		content: var(--pseudo-content, '');
+		background-color: var(--icon-color);
+		transform-origin: center;
+		transform: rotate(var(--icon-rotation, 0deg));
+		transition: transform var(--transition-duration) var(--transition-ease);
+	}
+
+	&::before {
+		width: var(--w);
+		height: var(--l);
+	}
+
+	&::after {
+		width: var(--l);
+		height: var(--w);
+		opacity: var(--icon-after-opacity, 1);
+	}
+
+	&:not(:empty) {
+		--pseudo-content: none;
+		--icon-color: transparant;
+	}
+}
+
+
+.c-toggle__label {
+	font-size: var(--g-fs);
+	line-height: var(--g-lh);
+	display: flex;
+	font-weight: var(--fw-bold);
+	color: var(--label-color);
+	pointer-events: none; // needed for js
+	transition: all var(--transition-duration) var(--transition-ease);
+}
+
+
+.c-toggle__content {
+	max-height: 0;
+	opacity: 0;
+	padding-left: calc(var(--icon-size) + var(--icon-gap));
+	pointer-events: none; // Needed so we don't click on it when it is hidden
+	transition: all var(--transition-duration) var(--transition-ease);
+
+	.is-active & {
+		padding-block: var(--space-2);
+		max-height: 2000px;
+		opacity: 1;
+		pointer-events: all;
+	}
+}

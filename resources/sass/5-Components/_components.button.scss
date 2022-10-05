@@ -1,0 +1,158 @@
+.c-button {
+	--font-size:                1.4rem;
+	--line-height:              1.6rem;
+	--border-size:              1px;
+	--border-color:             transparent;
+	--bg-color:                 var(--color-secondary-500);
+	--label-color:              var(--color-neutral-0);
+	--icon-color:               var(--color-neutral-0);
+	--padding-block-start:      var(--space-2);
+	--padding-block-end:        var(--space-2);
+	--padding-inline:           var(--space-2);
+	--grid-areas:               "text";
+	--radius:                   var(--radius-m);
+	--text-transform:           uppercase;
+	--text-shadow:              0 0 4px rgba(0,0,0,0.2);
+	--animation-speed:          150ms;
+	--animation-timing:         cubic-bezier(.22,.61,.36,1);
+
+	// hover
+	--border-color-hover:       transparent;
+	--bg-color-hover:           var(--color-secondary-700);
+	--label-color-hover:        var(--color-neutral-0);
+	--icon-color-hover:         var(--color-neutral-0);
+
+	@include template(icon, text);
+	font-weight: var(--fw-medium);
+	font-size: var(--font-size);
+	line-height: var(--line-height);
+	display: inline-grid;
+	grid-template-areas: var(--grid-areas);
+	grid-template-columns: repeat(auto-fit, minmax(0, auto));
+	grid-column-gap: var(--space-1);
+	grid-template-rows: auto;
+	align-items: baseline;
+	text-transform: var(--text-transform);
+	text-shadow: var(--text-shadow);
+	position: relative;
+	text-decoration: none;
+	padding-block-start: calc(var(--padding-block-start) - var(--border-size));
+	padding-block-end: calc(var(--padding-block-end) - var(--border-size));
+	padding-inline: var(--padding-inline);
+	background-color: var(--button-bg-color, var(--bg-color)); // overridable color through component that nests the button
+	border: var(--border-size) solid var(--border-color); // reset
+	border-radius: var(--radius);
+	cursor: pointer;
+	-webkit-appearance: none;
+	transition: all var(--animation-speed) var(--animation-timing);
+
+	&.has-icon {
+		--grid-areas: "text icon";
+
+		&[data-icon-pos="before"] {
+			--grid-areas: "icon text";
+		}
+	}
+
+	@at-root {
+		a#{&},
+		button#{&} {
+			&:hover {
+				--border-color: var(--border-color-hover);
+				--bg-color: var(--bg-color-hover);
+				--label-color: var(--label-color-hover);
+				--label-underline-color: var(--label-underline-color-hover);
+				--icon-border-bg-color: var(--icon-border-bg-color-hover);
+				--icon-bg-color: var(--icon-bg-color-hover);
+				--icon-color: var(--icon-color-hover);
+			}
+		}
+	}
+
+	&:focus:not(:active):not(:hover) {
+		outline: 1px solid var(--color-action-500);
+		outline-offset: 2px;
+	}
+}
+
+
+.c-button--ghost {
+	--border-color:             var(--color-neutral-1000);
+	--bg-color:                 transparent;
+	--label-color:              var(--color-neutral-1000);
+	--icon-color:               var(--label-color);
+	--text-shadow:              none;
+
+	--bg-color-hover:           transparent;
+	--border-color-hover:       var(--color-primary-500);
+	--label-color-hover:        var(--color-primary-500);
+	--icon-color-hover:         var(--color-primary-500);
+
+	&[class*="on-dark"] {
+		--border-color:         var(--color-neutral-0);
+		--label-color:          var(--color-neutral-0);
+
+		--bg-color-hover:        hsl(var(--color-neutral-0-hsl), 0.03);
+		--border-color-hover:    hsl(var(--color-neutral-0-hsl), 0.7);
+		--label-color-hover:     hsl(var(--color-neutral-0-hsl), 0.7);
+		--icon-color-hover:      hsl(var(--color-neutral-0-hsl), 0.7);
+	}
+}
+
+
+.c-button--text {
+	--font-size:                1.6rem;
+	--line-height:              2.4rem;
+	--bg-color:                 transparent;
+	--label-color:              var(--color-action-500);
+	--icon-color:               var(--color-action-500);
+	--padding-block-start:      0;
+	--padding-block-end:        0;
+	--padding-inline:           0;
+	--text-shadow:              none;
+	--text-transform:           initial;
+
+	--bg-color-hover:           transparent;
+	--label-color-hover:        var(--color-neutral-800);
+	--icon-color-hover:         var(--color-neutral-1000);
+
+	&[class*="on-dark"] {
+		--label-color:          var(--color-neutral-0);
+		--icon-color:           var(--color-neutral-0);
+
+		--label-color-hover:    hsl(var(--color-neutral-0-hsl), 0.6);
+		--icon-color-hover:     hsl(var(--color-neutral-0-hsl), 0.6);
+	}
+}
+
+.c-button--small {
+	--padding-inline:           var(--space-1);
+	--padding-block-start:      var(--space-1);
+	--padding-block-end:        var(--space-1);
+}
+
+
+.c-button__label {
+	color: var(--c-button-label-color, var(--label-color)); // make override possible
+	transition: color var(--animation-speed) var(--animation-timing);
+	position: relative;
+}
+
+
+.c-button__icon {
+	position: relative;
+	z-index: 1;
+	color: var(--c-button-icon-color, var(--icon-color));
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: var(--icon-size, auto);
+	height: var(--icon-size, auto);
+	transform: translateY(var(--icon-Y-offset, 1px));
+	transition: color var(--animation-speed) var(--animation-timing);
+
+	svg {
+		position: relative;
+		z-index: 1;
+	}
+}

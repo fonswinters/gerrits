@@ -1,0 +1,30 @@
+.c-date-label {
+	display: inline-block;
+	padding: var(--space-small) var(--space-3);
+	font-weight: var(--fw-bold);
+}
+
+
+.c-date-label--secondary {
+	background-color: var(--color-secondary-500);
+	color: var(--color-neutral-0);
+}
+
+
+.c-date-label__day {
+	font-size: 2.4rem;
+	line-height: 1.3333;
+	display: inline-block; // time element doesn't seem to have a default
+}
+
+
+.c-date-label__month {
+	font-size: 1.8rem;
+	line-height: 1.77777778;
+	display: inline-block; // time element doesn't seem to have a default
+}
+
+
+.c-date-label__separator {
+	font-size: 1.2rem;
+}

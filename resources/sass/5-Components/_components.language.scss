@@ -1,0 +1,97 @@
+.c-language {
+	--bgcolor:					var(--color-neutral-0);
+	--bgcolor-alt:			  	var(--color-neutral-100);
+	--color:					var(--color-neutral-500);
+	--color-hover:				var(--color-neutral-0);
+	--bgcolor-hover:			var(--color-secondary-500);
+
+	position: relative;
+}
+
+.c-language__button {
+	font-size: 1.5rem;
+	line-height: 1.6;
+	display: flex;
+	position: relative;
+	width: 100%;
+	padding: var(--space-1);
+	text-align: left;
+	background: transparent;
+	border-radius: var(--radius-s);
+	color: var(--color);
+	border: none;
+	appearance: none;
+	transition: background-color 0.15s, box-shadow 0.15s;
+
+	&:focus {
+		outline: none;
+	}
+}
+
+.c-language__icon {
+	flex: none;
+	pointer-events: none;
+}
+
+.c-language__label {
+	margin-left: var(--space-small);
+	font-weight: var(--fw-bold);
+}
+
+.c-language__dropdown {
+	position: absolute;
+	right: 0;
+	top: 100%;
+	min-width: 100%;
+	margin: 0;
+	opacity: 0;
+	list-style: none;
+	border-radius: var(--radius-s);
+	box-shadow: 0 0 12px 1px hsl(var(--color-neutral-100-hsl), 0.15);
+	pointer-events: none;
+	transform: translate3d(0, -5px, 0);
+	transition: opacity 0.3s, transform 0.3s;
+
+	.c-language:hover & {
+		opacity: 1;
+		pointer-events: all;
+		transform: translate3d(0,0,0);
+	}
+}
+
+.c-language__item {
+	background-color: var(--bgcolor);
+	overflow: hidden;
+
+	&:nth-child(even) {
+		background-color: var(--bgcolor-alt);
+	}
+
+	&:first-child {
+		border-radius: var(--radius-s) var(--radius-s) 0 0;
+	}
+
+	&:last-child {
+		border-radius: 0 0 var(--radius-s) var(--radius-s);
+	}
+
+	&:first-child:last-child {
+		border-radius: var(--radius-s);
+	}
+}
+
+.c-language__link {
+	display: block;
+	padding: var(--space-small) var(--space-1);
+	text-align: center;
+	font-weight: var(--fw-bold);
+	text-decoration: none;
+	color: var(--color);
+	transition: background-color 0.3s;
+
+	&:hover {
+		color: var(--color-hover);
+		background-color: var(--bgcolor-hover);
+	}
+}
+

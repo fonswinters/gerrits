@@ -1,0 +1,103 @@
+.c-card {
+	--label-bg-color:		var(--color-neutral-1000);
+	--label-color:			var(--color-neutral-0);
+	--arrow-bg-color:	    var(--color-secondary-500);
+	--arrow-color:	        var(--color-neutral-0);
+	--shade-bg-color:		hsl(var(--color-primary-500-hsl), 0.72);
+	--transition-duration:  250ms;
+
+	display: grid;
+	height: 100%;
+	text-decoration: none;
+	position: relative;
+	overflow: hidden; // because of pseudo element
+	z-index: 0;
+	border-radius: var(--radius-s);
+	outline: none;
+
+	&:hover {
+		--img-scale: 1.1;
+		--shade-opacity: 1;
+		--arrow-opacity: 1;
+		--arrow-transform: none;
+		--label-bg-color: var(--color-secondary-500);
+	}
+
+	&:focus:not(:active):not(:hover) {
+		outline: 2px solid var(--label-bg-color);
+		outline-offset: 1px;
+	}
+}
+
+
+.c-card__picture {
+	grid-row: 1;
+	grid-column: 1;
+	display: grid;
+
+	// shade, visible on hover
+	&::after {
+		content: '';
+		grid-row: 1;
+		grid-column: 1;
+		z-index: 1;
+		opacity: var(--shade-opacity, 0);
+		pointer-events: none;
+		background: var(--shade-bg-color);
+		backdrop-filter: blur(6px);
+		transform-origin: center;
+		transition: opacity var(--transition-duration);
+	}
+}
+
+
+.c-card__img {
+	grid-row: 1;
+	grid-column: 1;
+	width: 100%;
+	height: auto;
+	object-fit: cover;
+	transform: scale(var(--img-scale, 1));
+	transition: transform var(--transition-duration) ease-out;
+}
+
+
+.c-card__label {
+	grid-row: 2;
+	grid-column: 1;
+	font-size: 1.4rem;
+	line-height: 1.14285714;
+	position: relative;
+	z-index: 3;
+	overflow: hidden;
+	padding: 14px 10px 15px;
+	text-align: center;
+	font-weight: var(--fw-semi-bold);
+	text-transform: uppercase;
+	color: var(--label-color);
+	background-color: var(--label-bg-color);
+	transition: background-color var(--transition-duration);
+}
+
+
+.c-card__arrow {
+	pointer-events: none;
+	z-index: 2;
+	grid-row: 1 / -1;
+	grid-column: 1;
+	align-self: center;
+	justify-self: center;
+	width: var(--space-5);
+	height: var(--space-5);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
+	opacity: var(--arrow-opacity, 0);
+	color: var(--arrow-color);
+	background: var(--arrow-bg-color);
+	transform: var(--arrow-transform, rotate(-45deg) scale(1.5));
+	transition-property: opacity, transform;
+	transition-duration: var(--transition-duration);
+	transition-timing-function: ease-out;
+}

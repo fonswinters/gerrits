@@ -1,0 +1,54 @@
+.o-apply {
+	background: var(--color-neutral-100);
+}
+
+.o-apply__main {
+	@include contain;
+}
+
+.o-apply__form {
+	padding-top: clamp(var(--space-4), 4vw, var(--space-6));
+	padding-bottom: clamp(var(--space-5), 7vw, var(--space-12));
+}
+
+.o-apply__heading {
+	padding-bottom: var(--space-6);
+	color: var(--color-neutral-900);
+}
+
+
+.o-apply__body {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+	grid-gap: var(--space-6);
+}
+
+
+.o-apply__left {
+	@include stack(var(--space-2))
+}
+
+
+.o-apply__right {
+}
+
+
+.o-apply__row {
+}
+
+
+.o-apply__fileupload {
+
+}
+
+
+.o-apply__footer {
+	border-top: 1px solid var(--color-neutral-300);
+	margin-top: var(--space-6);
+	padding-top: var(--space-6);
+	text-align: center;
+}
+
+.o-apply__feedback {
+	margin-top: var(--space-4);
+}

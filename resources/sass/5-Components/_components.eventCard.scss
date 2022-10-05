@@ -1,0 +1,111 @@
+.c-event-card {
+	--info-bg-color:        var(--color-neutral-100);
+	--date-color:           var(--color-neutral-0);
+	--date-bg-color:        var(--color-secondary-500);
+	--title-color:          var(--color-neutral-800);
+	--subtitle-color:       var(--color-neutral-500);
+	--type-color:           var(--color-neutral-400);
+	--transition-duration:  200ms;
+
+	// colors on hover
+	--bg-color-hover:       var(--color-primary-500);
+	--color-hover:	        var(--color-neutral-0);
+
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	text-decoration: none;
+	border-radius: var(--radius-s);
+	overflow: hidden; // because of pseudo element
+
+	&:focus {
+		outline: 2px solid var(--bg-color-hover);
+		outline-offset: 1px;
+	}
+
+	&:hover {
+		--overlay-opacity: 0.5;
+		--date-color: var(--color-hover);
+		--date-bg-color: var(--bg-color-hover);
+		--info-bg-color: var(--bg-color-hover);
+		--type-color: var(--color-hover);
+		--subtitle-color: var(--color-hover);
+		--title-color: var(--color-hover);
+		--img-scale: 1.2;
+	}
+}
+
+
+.c-event-card__picture {
+	width: 100%;
+	flex: none;
+	display: block;
+	position: relative;
+
+	&::before {
+		content: '';
+		position: absolute;
+		z-index: 1;
+		inset: 0;
+		background-color: var(--bg-color-hover);
+		opacity: var(--overlay-opacity, 0);
+		pointer-events: none;
+		transition: all var(--transition-duration);
+	}
+}
+
+
+.c-event-card__img {
+	object-fit: cover;
+	width: 100%;
+	height: auto;
+	transform: scale(var(--img-scale));
+	transition: transform var(--transition-duration) ease-out;
+}
+
+
+.c-event-card__date {
+	position: absolute;
+	z-index: 1;
+	bottom: 0;
+	left: 0;
+	color: var(--date-color);
+	background-color: var(--date-bg-color);
+	border-top-right-radius: var(--radius-s);
+	transition: all var(--transition-duration);
+}
+
+
+.c-event-card__info {
+	position: relative;
+	flex: 1;
+	background-color: var(--info-bg-color);
+	padding: var(--space-2) var(--space-3);
+	transition: all var(--transition-duration);
+}
+
+
+.c-event-card__title {
+	font-size: 1.6rem;
+	font-weight: var(--fw-bold);
+	color: var(--title-color);
+	transition: all var(--transition-duration);
+}
+
+
+.c-event-card__subtitle {
+	font-size: 1.5rem;
+	line-height: 1.6;
+	color: var(--subtitle-color);
+	transition: all var(--transition-duration);
+}
+
+
+.c-event-card__type {
+	font-size: 1.5rem;
+	line-height: 1.6;
+	margin-top: var(--space-1);
+	color: var(--type-color);
+	transition: all var(--transition-duration);
+}

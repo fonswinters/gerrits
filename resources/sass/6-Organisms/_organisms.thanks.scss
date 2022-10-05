@@ -1,0 +1,7 @@
+.o-thanks {
+	@include contain;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(min(414px, 100%), 1fr));
+	grid-gap: var(--space-6);
+	padding-bottom: clamp(var(--space-5), 7vw, var(--space-12));
+}

@@ -1,0 +1,44 @@
+.c-page-title {
+	--heading-color: var(--color-neutral-800);
+	--subheading-color: var(--color-neutral-400);
+
+	@include contain;
+	@include hyphenate;
+	padding-top: var(--space-2);
+	padding-bottom: var(--space-2);
+
+	@include mq(m) {
+		--preheading-margin-block: var(--space-1-n) var(--space-1);
+		padding-top: var(--space-5);
+		padding-bottom: var(--space-5);
+	}
+
+	&.on-dark {
+		--heading-color: var(--color-neutral-0);
+		--subheading-color: var(--color-neutral-300);
+	}
+}
+
+
+.c-page-title--center {
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+.c-page-title__preheading {
+	margin-block: var(--preheading-margin-block);
+}
+
+
+.c-page-title__heading {
+	font-size: 4rem;
+	line-height: 1.3;
+	color: var(--heading-color);
+}
+
+
+.c-page-title__subheading {
+	color: var(--subheading-color);
+}

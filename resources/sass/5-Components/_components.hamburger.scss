@@ -1,0 +1,78 @@
+.c-hamburger {
+	--color: 	var(--color-neutral-500);
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	align-self: center;
+	position: relative;
+	width: var(--space-5);
+	height: var(--space-5);
+	padding: 0;
+	color: var(--color);
+	background: none;
+	border: none;
+	outline: none;
+	cursor: pointer;
+
+	&:focus {
+		outline-color: currentColor;
+		outline-style: solid;
+		outline-offset: 1px;
+		outline-width: 2px;
+	}
+
+	& > span,
+	&:after,
+	&:before {
+		content: '';
+		position: absolute;
+		top: 20px;
+		right: 20%;
+		left: 20%;
+		height: 3px;
+		margin-top: -2px;
+		pointer-events: none;
+		background: currentColor;
+		border-radius: 3px;
+		transform-origin: right;
+		transition-property: transform;
+		transition-duration: 150ms;
+		transition-timing-function: ease-out;
+		transition-delay: 100ms;
+	}
+
+	&:before {
+		top: 12px;
+		transform: scaleX(0.8);
+	}
+
+	&:after {
+		top: 28px;
+		transform: scaleX(0.5);
+	}
+
+	&:hover {
+		& > span {
+			transform: scaleX(0.8);
+		}
+		&:after,
+		&:before {
+			transform: scaleX(1);
+		}
+	}
+
+	.is-overlay-menu-active & {
+		& > span {
+			transform: scaleX(1) !important;
+		}
+		&:before {
+			transform: translateY(3px) scaleX(1) !important;
+			transition-delay: 0s;
+		}
+		&:after {
+			transform: translateY(-3px) scaleX(1) !important;
+			transition-delay: 0s;
+		}
+	}
+}

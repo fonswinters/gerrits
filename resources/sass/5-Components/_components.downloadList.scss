@@ -1,0 +1,45 @@
+.c-download-list {
+	--color: var(--color-neutral-500);
+	--icon-color: var(--color-neutral-800);
+	--item-bg-color: transparent;
+	--item-border-color: var(--color-neutral-300);
+
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.c-download-list__item {
+	background-color: var(--item-bg-color);
+	border-bottom: 1px solid var(--item-border-color);
+	transition: all 150ms;
+
+	&:hover {
+		--color: var(--color-neutral-900);
+		--icon-color: var(--color-neutral-500);
+		--item-bg-color: hsl(var(--color-neutral-500-hsl), 0.04);
+		--item-border-color: var(--color-neutral-500);
+	}
+}
+
+.c-download-list__link {
+	display: flex;
+	padding: var(--space-1) 0;
+	text-decoration: none;
+}
+
+.c-download-list__icon {
+	display: inline-block;
+	width: 16px;
+	margin-inline: var(--space-1);
+	color: var(--icon-color);
+
+	svg {
+		width: 100%;
+	}
+}
+
+.c-download-list__text {
+	flex: 1;
+	color: var(--color);
+}

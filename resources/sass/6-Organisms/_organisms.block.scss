@@ -1,0 +1,6 @@
+.o-block {
+	// Top margin only on consecutive blocks
+	& + & {
+		margin-top: clamp(var(--space-5), 7vw, var(--space-12));
+	}
+}

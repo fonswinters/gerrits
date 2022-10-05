@@ -1,0 +1,60 @@
+.o-references {
+	--inner-space: var(--space-3);
+	--border-size: 0;
+	--color: var(--color-neutral-500);
+	--color-sub: var(--color-neutral-400);
+	--bg-color: var(--color-neutral-0);
+	--border-color: var(--color-neutral-300);
+	--box-shadow: rgba(0, 0, 0, 0.05) 0 6px 24px 0, rgba(0, 0, 0, 0.08) 0 0 0 1px;
+
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(min(364px, 100%), 1fr));
+	grid-gap: var(--space-4);
+}
+
+.o-references__item {
+	padding: var(--inner-space);
+	background-color: var(--bg-color);
+	border: var(--border-size) solid var(--border-color);
+	border-radius: var(--radius-s);
+	box-shadow: var(--box-shadow);
+}
+
+.o-references__body {
+	display: flex;
+	gap: var(--inner-space);
+	flex-wrap: wrap;
+	align-items: flex-start;
+	margin-top: 0;
+}
+
+.o-references__picture {
+	display: block;
+	flex-grow: 1;
+	flex-basis: 25%;
+}
+
+.o-references__img {
+	width: 100%;
+}
+
+.o-references__content {
+	flex-grow: 9999;
+	flex-basis: 18em;
+	color: var(--color);
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-2);
+}
+
+.o-references__author {
+
+}
+
+.o-references__heading {
+	color: var(--color);
+}
+
+.o-references__subheading {
+	color: var(--color-sub);
+}

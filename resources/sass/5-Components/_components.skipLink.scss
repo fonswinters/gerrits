@@ -1,0 +1,20 @@
+/*
+ * Skip Link
+ */
+
+.c-skip-link {
+	position: fixed;
+	top: -100vh;
+	left: 50%;
+	transform: translateX(-50%);
+	color: var(--color-primary-500);
+	text-decoration: none;
+
+	&:focus {
+		outline-color: currentColor;
+		outline-style: solid;
+		outline-offset: 1px;
+		outline-width: 2px;
+		top: 5px; /* Now the link will appear */
+	}
+}

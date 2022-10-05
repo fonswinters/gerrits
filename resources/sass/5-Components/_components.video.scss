@@ -1,0 +1,15 @@
+.c-video{
+	position: relative;
+	height: 0;
+	width: 100%;
+	padding-bottom: 56.25%; // Aspect Ratio: 16:9
+	background-color: var(--color-neutral-300);
+}
+
+.c-video__iframe{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}

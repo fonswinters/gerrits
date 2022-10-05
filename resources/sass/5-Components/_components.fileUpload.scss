@@ -1,0 +1,78 @@
+.c-file-upload {}
+
+
+.c-file-upload__main {
+	position: relative;
+}
+
+
+.c-file-upload__input {
+	position: absolute;
+	inset: 0;
+	opacity: 0;
+}
+
+
+.c-file-upload__list {
+	margin-left: 0;
+	margin-bottom: var(--space-3);
+	list-style: none;
+	overflow: hidden;
+
+	& > li {
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		border-bottom: 1px solid var(--color-neutral-300);
+		padding: var(--space-small) 0;
+		animation: expand .5s ease-in-out;
+
+		&::before {
+			content: '';
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 16px;
+			height: 16px;
+			margin-right: var(--space-1);
+			background: url("/img/file.svg") no-repeat;
+		}
+
+		// delete button
+		& > button {
+			font-size: 24px;
+			line-height: 16px;
+			color: var(--color-neutral-1000);
+			margin-left: auto;
+			border: none;
+			background-color: transparent;
+			cursor: pointer;
+			outline: none;
+			transition: color 150ms linear;
+
+			&:hover {
+				color: var(--color-negative-500);
+			}
+
+			&::before {
+				content: '\00D7';
+			}
+		}
+	}
+}
+
+
+.c-file-upload__note {
+	margin-left: var(--space-1);
+	color: var(--color-neutral-400);
+}
+
+
+@keyframes expand {
+	from {
+		transform: translateX(-100%);
+		transform-origin: top;
+		opacity: 0;
+		background: var(--color-action-500);
+	}
+}

@@ -1,0 +1,43 @@
+.c-data {
+	--label-width: var(--space-8);
+
+	margin: var(--space-2) 0;
+}
+
+
+.c-data__line {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+
+.c-data__label {
+	min-width: var(--label-width);
+	font-weight: var(--fw-bold);
+	color: var(--c-data-label-color, var(--color-neutral-800));
+}
+
+
+.c-data__value {
+	flex-grow: 1;
+	flex-basis: calc((290px - 100%) * 999);
+	color: var(--c-data-value-color, var(--color-neutral-500));
+	text-decoration: none;
+
+	min-width: 0;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+
+	&[href] {
+		@include disableOutlineForMouse;
+
+		&:hover {
+			text-decoration: underline;
+		}
+		&:focus {
+			outline: 2px solid currentColor;
+			outline-offset: 1px;
+		}
+	}
+}

@@ -1,0 +1,136 @@
+/* ==========================================================================
+ * Basic elements (no class selectors allowed)
+ * ========================================================================== */
+
+/**
+ * Set up the html
+ *
+ * 1. Makes sure that some fonts are better rendered
+ * 2. Set font to lining figures
+ *
+ */
+
+html {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-rendering: optimizeLegibility;
+	font-feature-settings: "lnum";
+	box-sizing: border-box;
+	height: 100%;
+	touch-action: manipulation; // disable double tap to zoom on iOS
+	font-size: 62.5% // set to 10px, set back to 16px on body with 1.6rem!!
+}
+
+body {
+	font-size: var(--g-fs);
+	line-height: var(--g-lh);
+	font-family: var(--g-ff);
+	min-height: 100%;
+	position: relative;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	background: var(--color-neutral-0);
+	color: var(--color-neutral-500);
+	overflow-x: hidden;
+}
+
+footer {
+	flex: 1 0 auto;
+	display: flex;
+	flex-direction: column;
+}
+
+
+/**
+ * [1] Make sure elements like input and textarea inherit some base properties
+ *     https://www.smashingmagazine.com/2016/11/css-inheritance-cascade-global-scope-new-old-worst-best-friends/
+ *
+ * [2] Setting box-sizing the best way per:
+ *     https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+ */
+* {
+	font-family: inherit;
+	line-height: inherit;
+	color: inherit;
+
+	&,
+	&:before,
+	&:after {
+		box-sizing: inherit;
+	}
+}
+
+/**
+ * [1] Turn off text-shadow when selecting text for better readability
+ */
+::selection {
+	background: var(--color-secondary-700);
+	color: var(--color-neutral-0);
+	text-shadow: none; /* [1] */
+}
+
+/* Remove default margin around figure
+ */
+figure {
+	margin: 0;
+}
+
+/**
+ * [1] Setting 'vertical-align' removes the whitespace that appears under 'img'
+ *	   elements when they are dropped into a page as-is. Safer alternative to
+ *	   using 'display: block;'.
+ * [2] Remove border / especially on older browsers
+ */
+img, svg {
+	vertical-align: middle; /*[1]*/
+	border: none; /*[2]*/
+	max-width: 100%;
+}
+
+/**
+ *  Needed for iOS to prevent input zooming
+ *  https://uxcellence.com/2014/01/15/quick-fix-increase-font-size-to-16px-to-fix-input-zoom
+ */
+input,
+select,
+textarea {
+	font-size: 1.6rem;
+}
+
+
+// Links with no class get a default hover
+a:not([class]) {
+	position: relative;
+	color: var(--color-action-500);
+	text-decoration: none;
+	text-decoration-skip-ink: auto; // pretty underlining links
+
+	&::after {
+		position: absolute;
+		top: 100%;
+		left: 0;
+		width: 100%;
+		height: var(--after-height, 1px);
+		background: var(--color-action-500);
+		content: '';
+		opacity: var(--after-opacity, 0);
+		transition: height 0.3s, opacity 0.3s, transform 0.3s;
+		transform: var(--after-transform, translateY(-5px));
+	}
+
+	&:hover {
+		--after-height: 2px;
+		--after-opacity: 1;
+		--after-transform: none;
+	}
+}
+
+
+// Reset a lot of block level margins
+h1,h2,h3,h4,h5,h6,
+ul,ol,dd,
+p,figure,
+pre,table,fieldset,hr {
+	margin-block: 0;
+}

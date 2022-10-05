@@ -1,0 +1,11 @@
+{
+  "name": "Basic",
+  "short_name": "Basic",
+  "theme_color": "#798E7A",
+  "background_color": "#fff",
+  "display": "standalone",
+  "orientation": "portrait",
+  "scope": "/",
+  "start_url": "/?source=pwa",
+  "icons": []
+}

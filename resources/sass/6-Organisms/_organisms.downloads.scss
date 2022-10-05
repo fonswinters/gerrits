@@ -1,0 +1,36 @@
+.o-downloads {
+	@include contain;
+
+	&.is-reversed {
+		@include mq(m) {
+			--grid-template-columns: 1fr minmax(300px, 1fr);
+			--grid-template-areas: "c d";
+		}
+	}
+}
+
+
+.o-downloads__main {
+	display: grid;
+	grid-gap: var(--space-6);
+	grid-template-areas: "d" "c";
+
+	@include mq(m) {
+		grid-template-columns: var(--grid-template-columns, minmax(300px, 1fr) 1fr);
+		grid-template-areas: var(--grid-template-areas, "d c");
+	}
+}
+
+
+.o-downloads__d {
+	grid-area: d;
+	background-color: var(--color-neutral-100);
+	padding-top: var(--space-5);
+	padding-bottom: var(--space-5);
+	padding-inline: var(--space-4);
+}
+
+
+.o-downloads__c {
+	grid-area: c;
+}

@@ -1,0 +1,16 @@
+.c-sitemap__item {
+	font-size: 2.4rem;
+	line-height: 1.3333;
+	color: var(--color-neutral-500);
+}
+
+.c-sitemap__link {
+	display: block;
+	padding: var(--space-small) 0;
+	text-decoration: none;
+
+	&:hover {
+		color: var(--color-primary-500);
+		text-decoration: underline;
+	}
+}

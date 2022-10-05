@@ -1,0 +1,31 @@
+.o-nav-personal {
+	@include mq(m, l, 'exclude') {
+		@include contain;
+	}
+
+	display: grid;
+	grid-row-gap: clamp(var(--space-4), 6vw, var(--space-8));
+	grid-template-areas: "n" "s";
+
+	@include mq(m) {
+		--s-block-pad: var(--space-10);
+		grid-template-columns: var(--g-container-gutter) 6fr 1fr 5fr var(--g-container-gutter);
+		grid-template-areas: "n n . s .";
+	}
+	@include mq(l) {
+		grid-template-columns: 6fr 1fr 5fr;
+		grid-template-areas: "n . s";
+	}
+}
+
+.o-nav-personal__n {
+	grid-area: n;
+	background-color: var(--g-subnav-bg-color);
+	padding-block: clamp(var(--space-4), 6vw, var(--space-8));
+	padding-inline: clamp(var(--space-4), 6vw, var(--space-8));
+}
+
+.o-nav-personal__s {
+	grid-area: s;
+	margin-block: var(--s-block-pad);
+}

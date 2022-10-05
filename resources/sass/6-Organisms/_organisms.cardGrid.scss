@@ -1,0 +1,10 @@
+.o-card-grid {
+  display: grid;
+  grid-gap: var(--space-4);
+  grid-template-columns: repeat(auto-fit, minmax(min(268px, 100%), 1fr));
+
+  & > * {
+    max-width: 444px; // not larger then the card image
+    margin-inline: auto;
+  }
+}

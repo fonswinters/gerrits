@@ -1,0 +1,34 @@
+.c-trademark {
+	display: inline-flex;
+	align-items: center;
+	text-decoration: none;
+	transition: color 0.15s ease-in-out;
+
+	&:hover {
+		.komma-emblem {
+			transform-origin: 12px 12px;
+			animation: logo-spin 1.8s linear infinite;
+		}
+	}
+}
+
+.c-trademark__text {
+	display: flex;
+	margin: -2px;
+
+	& > * {
+		margin: 2px;
+		display: flex;
+		align-items: center;
+	}
+}
+
+.c-trademark__icon {
+	margin-left: var(--space-1);
+}
+
+
+@keyframes logo-spin {
+	from { transform: rotate(0); }
+	to { transform: rotate(-1turn); }
+}

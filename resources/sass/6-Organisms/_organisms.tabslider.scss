@@ -1,0 +1,145 @@
+/*
+ * On small screens the content is stacked, without controls
+ * When the screen is wide enough we add the controls
+ * and show only the chosen 'slide content'
+ */
+
+.o-tabslider {
+	--bgcolor:					var(--color-neutral-0);
+	--color:					var(--color-neutral-800);
+	--active-color:				var(--color-neutral-0);
+	--active-bgcolor:			var(--color-primary-500);
+	--border-color: 			var(--color-neutral-300);
+	--active-border-color: 		var(--color-primary-500);
+	--tab-gap:  				var(--space-1);
+}
+
+
+// Shared styling for tab- and step-buttons
+.o-tabslider__button {
+	min-height: var(--space-6);
+	color: var(--color);
+	background-color: var(--bgcolor);
+	border: 1px solid var(--border-color);
+	border-radius: var(--radius-m);
+	font-weight: var(--fw-medium);;
+	cursor: pointer;
+	transition-property: color, border;
+	transition-duration: 250ms;
+
+	&:hover {
+		color: var(--active-bgcolor);
+		border-color: var(--active-bgcolor);
+	}
+
+	&.is-active {
+		color: var(--active-color);
+		background-color: var(--active-bgcolor);
+		border-color: var(--active-border-color);
+	}
+
+	&:focus {
+		outline: none;
+		border-color: var(--color-primary-500);
+
+		&:not(.is-active):not(:active) {
+			box-shadow: 0 0 0 1px var(--bgcolor), 0 0 5px 3px rgba(var(--color), 0.1);
+		}
+	}
+}
+
+
+.o-tabslider__controls {
+	@include contain;
+
+	@include mq($max: m) {
+		display: none;
+	}
+
+	@include mq(m) {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+}
+
+
+.o-tabslider__step {
+	width: var(--space-6);
+}
+
+
+.o-tabslider__step--prev {
+	transform: rotate(0.5turn);
+}
+
+
+.o-tabslider__tabs {
+	@include mq(m){
+		display: flex;
+	}
+
+	@include mq(l) {
+		margin: calc(var(--tab-gap) * -1) var(--tab-gap);
+	}
+}
+
+
+.o-tabslider__tab {
+	font-size: 1.4rem;
+	line-height: 1.14285714;
+	margin: var(--tab-gap);
+	padding: calc(var(--space-small) - 1px) var(--space-2);
+	text-transform: uppercase;
+}
+
+
+.o-tabslider__container {
+	display: grid;
+	grid-row-gap: var(--space-6);
+
+	@include mq(m) {
+		grid-template: 1fr / 1fr;
+		margin-top: var(--space-6);
+	}
+}
+
+
+.o-tabslider__content {
+	@include mq(m) {
+		grid-row: 1;
+		grid-column: 1;
+		opacity: 0;
+		z-index: 0;
+		transform: translateY(6px);
+		pointer-events: none;
+		transform-origin: top center;
+		transition-property: opacity, transform;
+		transition-duration: 200ms;
+		transition-timing-function: ease-in;
+
+		&.is-active {
+			opacity: 1;
+			z-index: 1;
+			transform: none;
+			pointer-events: all;
+			transition-duration: 500ms;
+			transition-delay: 200ms;
+			transition-timing-function: ease-out;
+		}
+	}
+}
+
+
+.o-tabslider__label {
+	font-size: 1.4rem;
+	line-height: 1.14285714;
+	display: block;
+	padding-bottom: var(--space-1);
+	text-transform: uppercase;
+	color: var(--color-neutral-800);
+
+	@include mq(m) {
+		display: none;
+	}
+}

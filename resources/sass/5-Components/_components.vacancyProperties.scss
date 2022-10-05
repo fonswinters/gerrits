@@ -1,0 +1,39 @@
+.c-vacancy-properties {
+	--color: var(--color-primary-700);
+	--icon-color: hsl(var(--color-primary-500-hsl), 0.5);
+
+	list-style: none;
+	display: flex;
+	flex-wrap: wrap;
+	margin-left: 0;
+}
+
+
+.c-vacancy-properties--alt {
+	--color: var(--color-primary-500);
+}
+
+
+.c-vacancy-properties__item {
+	display: flex;
+	align-items: center;
+	color: var(--c-vacancy-property-hover-color, var(--color));
+	margin-top: 4px;
+	margin-bottom: 4px;
+	transition: 150ms color;
+
+	&:nth-last-child(n+2) {
+		margin-right: var(--space-4);
+	}
+}
+
+
+.c-vacancy-properties__icon {
+	display: flex;
+	align-items: center;
+	width: 24px;
+	height: 24px;
+	margin-right: var(--space-1);
+	color: var(--c-vacancy-property-hover-color, var(--icon-color));
+	transition: 150ms color;
+}

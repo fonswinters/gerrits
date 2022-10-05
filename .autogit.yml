@@ -1,0 +1,56 @@
+#######################################################################################
+# Autogit - config and deploy hooks. Read combell manual for more info.               #
+#######################################################################################
+# This YAML file, named as "autogit.yml" should be present                            #
+# in the root folder of your codebase.                                                #
+#######################################################################################
+
+# shared files and folders:
+shared_files:
+  - .env
+shared_folders:
+  - www/uploads
+  - storage/
+  - storage/app
+  - storage/logs
+  - storage/framework/sessions
+  - storage/framework/cache
+
+# Hooks should be Bash shell scripts and get executed at different stages during deploy
+# Arguments: $1 = branch, $2 = commit id, $3 = checkout folder.
+hooks:
+  # SETUP: Create folder structure for newest release
+  setup_before: |
+    exit 0
+  setup_after: |
+    exit 0
+
+  # INSTALL: Put code in release folder
+  install_before: |
+    exit 0
+  install_after: |
+    composer install --no-ansi --no-interaction || exit 1
+    npm install || exit 1
+    npm run production || exit 1
+    npm run kms-production || exit 1
+    exit 0
+
+  # SHAREDSYMLINK: Create symlink to shared files and folders
+  #                present at every release (config, logs, ...)
+  sharedsymlink_before: |
+    exit 0
+  sharedsymlink_after: |
+    php artisan migrate --force || exit 1
+    exit 0
+
+  # SYMLINK: Set current symlink to newest release
+  symlink_before: |
+    exit 0
+  symlink_after: |
+    exit 0
+
+  # CLEANUP: Cleanup old releases, two most recent releases remaining
+  cleanup_before: |
+    exit 0
+  cleanup_after: |
+    exit 0

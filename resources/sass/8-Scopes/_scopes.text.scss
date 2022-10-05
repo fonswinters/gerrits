@@ -1,0 +1,79 @@
+/**
+ * All text elements that can be added by the user through a CMS
+ */
+
+
+.s-text {
+	--heading-color: var(--color-neutral-800);
+	--list-bullet-color: var(--color-neutral-400);
+
+	@include stack(var(--space-3));
+	color: var(--text-color, currentColor);
+
+	// Make sure first item in scoped text has no margin on top
+	& > :first-child {
+		margin-top: 0 !important;
+	}
+
+	& > :where(h1, h2, h3, h4, h5, h6) {
+		color: var(--heading-color);
+	}
+
+	& > ul:not([class]) {
+		list-style: none;
+
+		& > li {
+			position: relative;
+			margin-left: -1.125em;
+			padding-left: calc(1.125em + var(--space-small));
+
+			&::before {
+				font-weight: var(--fw-bold);
+				font-size: 1.25em;
+				content: "\2022";
+				position: absolute;
+				top: -3px;
+				left: 0;
+				opacity: 0.75;
+				color: var(--list-bullet-color);
+			}
+		}
+	}
+
+	& ol:not([class]) {
+		list-style: none;
+		counter-reset: ol-counter;
+		margin-left: 0;
+
+		& > li {
+			display: block;
+
+			// nested ol
+			ol {
+				margin-top: var(--space-1);
+				margin-left: -1.125em;
+				padding-left: calc(1.125em + var(--space-1));
+			}
+
+			ul {
+				padding-left: 1.125em;
+			}
+
+			&::before {
+				font-weight: var(--fw-bold);
+				content: counters(ol-counter, ".") " ";
+				counter-increment: ol-counter;
+				text-align: right;
+				float: left;
+				padding-right: 8px;
+			}
+		}
+	}
+}
+
+
+.s-text--on-dark {
+	--text-color: var(--color-neutral-0);
+	--heading-color: var(--color-neutral-0);
+	--list-bullet-color: var(--color-neutral-300);
+}

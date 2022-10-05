@@ -1,0 +1,25 @@
+<?php
+
+return array (
+  'dashboard' => 'Dashboard',
+  'users' => 'Gebruikers',
+  'sites' => 'Sites',
+  'pages' => 'Pagina\'s',
+  'team_members' => 'Team',
+  'posts' => 'Nieuws',
+  'events' => 'Events',
+  'services' => 'Diensten',
+  'references' => 'Referenties',
+  'projects' => 'Projecten',
+  'websiteconfig' => 'Configuratie',
+  'buttons' => 'Knoppen',
+  'servicepoints' => 'Contactpersonen',
+  'translation' => 'Vertalingen',
+  'my_profile' => 'Mijn profiel',
+  'products' => 'Producten',
+  'productGroups' => 'Types',
+  'solutions' => 'Toepassingen',
+  'solutionGroups' => 'Groepen',
+  'vacancies' => 'Vacatures',
+  'vacancy_process' => 'Proces stappen',
+);

@@ -1,0 +1,51 @@
+.o-double-usp {
+	--bg-color:  	var(--color-primary-500);
+	--color:	    var(--color-neutral-0);
+
+	background-color: var(--bg-color);
+}
+
+
+.o-double-usp__main {
+	@include contain;
+	padding-top: var(--space-6);
+	padding-bottom: var(--space-6);
+	display: grid;
+	grid-gap: var(--space-6);
+	grid-template-columns: repeat(auto-fit, minmax(min(386px, 100%), 1fr));
+}
+
+
+.o-double-usp__heading {
+	font-size: 3.2rem;
+	line-height: 1.25;
+	margin-bottom: var(--space-3);
+	color: var(--color);
+}
+
+
+.o-double-usp__list {
+	@include stack(var(--space-2));
+	list-style-type: none;
+	margin-left: 16px;
+}
+
+
+.o-double-usp__item {
+	position: relative;
+	padding-left: var(--space-2);
+	color: var(--color);
+
+	&::before {
+		--w: 16px;
+		--h: 12px;
+		content:'';
+		position: absolute;
+		top: 5px;
+		left: calc(var(--w) * -1);
+		width: var(--w);
+		height: var(--h);
+		background-image: url(/img/check/checked.svg);
+		background-size: var(--w) var(--h);
+	}
+}

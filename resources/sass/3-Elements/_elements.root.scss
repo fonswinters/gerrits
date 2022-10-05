@@ -1,0 +1,50 @@
+// Set our custom properties on the :root element so we can use them everywhere
+
+:root {
+	--g-ff:                     'Roboto', sans-serif;   // Font-family
+	--g-fs:                     1.6rem;                 // Font-size
+	--g-lh:                     1.5;                    // Line-height
+	--g-main-band-color:        var(--color-primary-500);
+	--g-subnav-bg-color:        var(--color-neutral-100);
+
+
+	// --------------------------------------------------------------
+	// For setting up a 'Basic' the following shouldn't need changing
+	// --------------------------------------------------------------
+	--g-column-count:           12;
+	--g-column-max-width:       96px;
+	--g-container-max-width:    calc(var(--g-column-count) * var(--g-column-max-width));
+	--g-container-gutter:       max(8px, 6.93vw - 14.18px);
+
+	--g-space-size:             8px;
+	--g-cookie-bar-height:      64px; // Fixed size so we can offset padding-bottom on the body
+
+
+	// Output our colors in custom properties, in 2 versions (without and with HSL)
+	@each $name, $palette in $palettes {
+		@each $level, $color in $palette {
+			--color-#{$name}-#{$level}-hsl: #{derive-hsl-values($color)};
+			--color-#{$name}-#{$level}: hsl(var(--color-#{$name}-#{$level}-hsl));
+		}
+	}
+
+
+	// positive spacing
+	@each $name, $size in $spacing {
+		--space-#{$name}:   calc(var(--g-space-size) * #{$size});
+	}
+	// negative spacing
+	@each $name, $size in $spacing {
+		--space-#{$name}-n: calc(var(--g-space-size) * #{$size * -1});
+	}
+
+
+	// font-weights
+	@each $name, $size in $font-weights {
+		--fw-#{$name}:   #{$size};
+	}
+
+	@each $name, $size in $border-radius {
+		--radius-#{$name}:   #{$size};
+	}
+}

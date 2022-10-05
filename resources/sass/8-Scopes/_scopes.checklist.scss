@@ -1,0 +1,33 @@
+.s-checklist {
+	list-style: none;
+	margin-left: 0;
+
+	li {
+		display: flex;
+		vertical-align: middle;
+		margin-top: 5px;
+		line-height: 1.45;
+
+		&::before {
+			content: '';
+			background-image: url(/img/check/checked.svg);
+			background-repeat: no-repeat;
+			width: 12px;
+			height: 12px;
+			margin-right: 8px;
+			transform: translateY(7px);
+		}
+	}
+
+	.checklist-has-x-small-font &{
+		font-size: 1.4rem;
+		line-height: 1.14285714;
+
+		li {
+			&::before {
+				transform: translateY(5px);
+			}
+		}
+	}
+
+}

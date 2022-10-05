@@ -1,0 +1,12 @@
+{
+  "fixturesFolder": "tests/Cypress/fixtures",
+  "integrationFolder": "tests/Cypress/integration",
+  "pluginsFile": "tests/Cypress/plugins/index.js",
+  "screenshotsFolder": "tests/Cypress/screenshots",
+  "supportFile": "tests/Cypress/support/index.js",
+  "videosFolder": "tests/Cypress/videos",
+  "baseUrl": "http://127.0.0.1:8000/",
+  "numTestsKeptInMemory": 10000,
+  "viewportWidth": 1366,
+  "viewportHeight": 768
+}

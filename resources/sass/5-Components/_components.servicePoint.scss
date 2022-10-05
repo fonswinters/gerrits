@@ -1,0 +1,73 @@
+.c-servicepoint {
+	--heading-color: var(--color-neutral-800);
+	--subheading-color: var(--color-neutral-400);
+	--tel-color: var(--color-neutral-800);
+	--tel-color-hover: var(--color-neutral-500);
+
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: var(--space-2);
+	width: clamp(50%, 600px, 100%); // testing if this works...
+	text-align: left; // needed for when a parent element has text-align center
+}
+
+
+.c-servicepoint__picture {
+	flex-grow: 9999;
+	flex-basis: 104px;
+	max-width: 176px;
+}
+
+
+.c-servicepoint__img {
+	display: block;
+	height: auto;
+	object-fit: contain;
+	border-radius: 100%;
+}
+
+
+.c-servicepoint__content {
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	@include hyphenate;
+}
+
+
+.c-servicepoint__body {
+	@include hyphenate;
+}
+
+
+.c-servicepoint__footer {
+	margin-top: var(--space-1);
+}
+
+
+.c-servicepoint__heading {
+	font-size: 1.6rem;
+	color: var(--heading-color);
+	border-radius: 100%;
+}
+
+
+.c-servicepoint__subheading {
+	font-size: 1.5rem;
+	line-height: 1.6;
+	color: var(--subheading-color);
+}
+
+.c-servicepoint__tel {
+	font-size: 1.8rem;
+	font-weight: var(--fw-bold);
+	text-decoration: none;
+	color: var(--tel-color);
+	transition: color 150ms;
+
+	&:hover {
+		color: var(--tel-color-hover);
+		text-decoration: underline;
+	}
+}

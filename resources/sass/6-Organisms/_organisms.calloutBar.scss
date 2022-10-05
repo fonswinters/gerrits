@@ -1,0 +1,20 @@
+.o-callout-bar {
+	--bg-color:  	var(--color-neutral-100);
+	--color:  		var(--color-neutral-800);
+
+	@include hyphenate;
+	background-color: var(--bg-color);
+	color: var(--color);
+  	text-align: center;
+}
+
+.o-callout-bar__main {
+	@include contain;
+	@include stack(clamp(var(--space-4), 4vw, var(--space-6)));
+	padding-block: clamp(var(--space-5), 7vw, var(--space-12));
+}
+
+
+.o-callout-bar__heading {
+	color: var(--color);
+}

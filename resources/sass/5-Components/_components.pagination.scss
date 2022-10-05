@@ -1,0 +1,89 @@
+.c-pagination {
+	--color:			var(--color-neutral-800);
+	--active-color:		var(--color-primary-500);
+	--border-color:		var(--color-neutral-300);
+
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	border: 1px solid var(--border-color);
+	border-radius: var(--radius-m);
+	list-style: none;
+	margin-left: 0;
+	overflow: hidden;
+}
+
+.c-pagination__item {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	// On small screens hide all items but the arrows, first page, last page and active
+	@include mq($max: m){
+		display: none;
+
+		&:first-child,
+		&:last-child,
+		&.is-last-page,
+		&.is-active {
+			display: flex;
+		}
+
+		&.is-last-page {
+			pointer-events: none;
+		}
+	}
+
+	& + & {
+		border-left: 1px solid;
+		border-color: inherit;
+	}
+}
+
+.c-pagination__text,
+.c-pagination__link,
+.c-pagination__prev,
+.c-pagination__next{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-width: var(--space-5);
+	min-height: var(--space-5);
+	padding: var(--space-1);
+}
+
+.c-pagination__text {
+	color: var(--color);
+	opacity: 0.35;
+}
+
+.c-pagination__link {
+	color: var(--color);
+	text-decoration: none;
+	transition: color 0.2s, background-color 0.2s;
+
+	&:hover {
+		background: var(--color-neutral-100);
+	}
+
+	.is-active > & {
+		box-shadow: inset 0 0 10px -5px var(--color-neutral-400);
+		font-weight: var(--fw-bold);
+		cursor: default;
+	}
+}
+
+.c-pagination__prev,
+.c-pagination__next {
+	transition: background 0.2s;
+	transform: rotate(0.75turn);
+
+	&.is-inactive {
+		--color: var(--color-neutral-300);
+		background: transparent;
+	}
+}
+
+.c-pagination__prev {
+	transform: rotate(0.25turn);
+}

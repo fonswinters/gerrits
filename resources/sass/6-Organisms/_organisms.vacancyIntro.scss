@@ -1,0 +1,19 @@
+.o-vacancy-intro {
+	@include contain;
+	display: grid;
+	grid-row-gap: clamp(var(--space-4), 6vw, var(--space-8));
+	grid-template-areas: "left" "right";
+
+	@include mq(m) {
+		grid-template-columns: 5fr 1fr 6fr;
+		grid-template-areas: "left . right";
+	}
+}
+
+.o-vacancy-intro__left {
+	grid-area: left;
+}
+
+.o-vacancy-intro__right {
+	grid-area: right;
+}

@@ -1,0 +1,20 @@
+.o-double-text {
+	@include template(a,b);
+	position: relative;
+	background-color: var(--color-neutral-0);
+	height: 100%; // stretch it out in its container
+	display: grid;
+	grid-row-gap: var(--space-4);
+	grid-template-areas: "a" "b";
+
+	// Set side by side from medium viewports and up
+	@include mq(m) {
+		grid-template-columns: 4fr 1fr 3fr;
+		grid-template-areas: "a . b";
+	}
+
+	@include mq(l) {
+		grid-template-columns: 1fr 5fr 1fr 4fr 1fr;
+		grid-template-areas: ". a . b .";
+	}
+}

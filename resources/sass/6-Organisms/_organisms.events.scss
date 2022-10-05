@@ -1,0 +1,10 @@
+.o-events__main {
+	display: grid;
+	grid-gap: var(--space-4);
+	grid-template-columns: repeat(auto-fit, minmax(min(264px, 100%), 1fr));
+}
+
+.o-events__item {
+	width:  min(344px, 100%);
+	justify-self: center;
+}

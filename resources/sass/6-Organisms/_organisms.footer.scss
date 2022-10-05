@@ -1,0 +1,154 @@
+.o-footer {
+	--bg-color:  	var(--color-primary-500);
+	--color:  	    var(--color-neutral-0);
+	--logo-height:  48px;
+
+	@include z(z-footer);
+	flex-grow: 1;
+	color: var(--color);
+	background-color: var(--bg-color);
+}
+
+
+.o-footer__main {
+	@include contain;
+	padding-block: clamp(var(--space-4), 4vw, var(--space-6));
+	display: grid;
+	grid-row-gap: var(--space-3);
+	grid-template-areas: "brand" "info" "social" "nav";
+	
+	@include mq(680) {
+		grid-column-gap: calc(1/12 * 100%);
+		grid-template-columns: 1fr 1fr;
+		grid-template-areas:
+			"brand ."
+			"social nav"
+			"info  nav";
+	}
+}
+
+
+.o-footer__brand {
+	grid-area: brand;
+	display: inline-block;
+	transition: opacity 200ms linear;
+
+	&:hover {
+		opacity: 0.5;
+	}
+}
+
+
+.o-footer__logo {
+	height: var(--logo-height);
+}
+
+
+// Left column
+.o-footer__info {
+	grid-area: info;
+	@include stack(var(--space-3));
+}
+
+
+.o-footer__address {
+	@include stack(var(--space-tiny));
+}
+
+
+// Right column
+.o-footer__nav {
+	grid-area: nav;
+}
+
+.o-footer__list {
+	list-style: none;
+	margin: 0;
+}
+
+
+.o-footer__link {
+	@include disableOutlineForMouse;
+	display: inline-block;
+	position: relative;
+	z-index: 0;
+	padding-block: var(--space-tiny);
+	color: var(--color);
+	text-decoration: none;
+	cursor: pointer;
+
+	&::before {
+		opacity: 0;
+		content: '';
+		display: block;
+		position: absolute;
+		z-index: -1;
+		top: 0;
+		bottom: 0;
+		left: var(--space-1-n);
+		right: var(--space-1-n);
+		background-color: hsl(0 100% 100% / 0.1);
+		border-radius: var(--radius-s);
+		transition: opacity 100ms linear;
+	}
+
+	&:hover {
+		&::before {
+			opacity: 1;
+		}
+	}
+
+	&:focus {
+		outline: 2px solid currentColor;
+		outline-offset: 1px;
+	}
+}
+
+
+.o-footer__social {
+	grid-area: social;
+	display: flex;
+	gap: var(--space-2);
+	margin: 0;
+	list-style: none;
+}
+
+
+.o-footer__channel {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 24px;
+	height: 24px;
+}
+
+
+.o-footer__icon {
+	flex: auto;
+	display: block;
+	height: 100%;
+	background-repeat: no-repeat;
+	background-position: center;
+	transition-property: opacity;
+	transition-duration: 0.3s;
+
+	.facebook & {
+		background-image: url("/img/social/facebook.svg");
+		height: 21px;
+	}
+	.instagram & {
+		background-image: url("/img/social/instagram.svg");
+	}
+	.twitter & {
+		background-image: url("/img/social/twitter.svg");
+		height: 20px;
+	}
+	.linkedin & {
+		background-image: url("/img/social/linkedin.svg");
+		height: 18px;
+	}
+
+	&:hover {
+		opacity: 0.5;
+	}
+}

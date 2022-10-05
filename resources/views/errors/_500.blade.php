@@ -1,0 +1,1 @@
+<p>I am a custom page error page for 500</p>

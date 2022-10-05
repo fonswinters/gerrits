@@ -1,0 +1,42 @@
+{
+  "path": "../tests/Benchmark",
+  "progress": "dots",
+  "reports": {
+    "standard": {
+      "extends": "default",
+      "title": "Kms Benchmark rapport",
+      "cols": ["date", "stime", "groups", "benchmark", "subject", "best", "worst", "mean", "stdev", "comp_z_value", "comp_deviation", "mem_real", "time_net"],
+      "break": ["revs"],
+      "labels": {
+        "date": "Datum",
+        "stime": "Tijd",
+        "groups": "Groepen",
+        "benchmark": "Benchmark",
+        "subject": "Onderwerp",
+        "best": "Beste",
+        "worst": "Slechtste",
+        "mean": "Gemiddelde",
+        "stdev": "Standaardafwijking",
+        "comp_z_value": "Z-score",
+        "comp_deviation": "Afwijking",
+        "mem_real": "Geheugen",
+        "time_net": "Totale tijd"
+      }
+    }
+  },
+  "outputs": {
+    "KMS Benchmark Console": {
+      "extends": "console",
+      "table_style": "symfony-style-guide"
+    },
+    "KMS Benchmark HTML": {
+      "extends": "html",
+      "file": "kms_benchmark.html",
+      "title": "KMS Benchmark"
+    }
+  },
+  "time_unit": "seconds",
+  "output_mode": "time",
+  "subject_pattern": "^bench",
+  "bootstrap": "vendor/autoload.php"
+}

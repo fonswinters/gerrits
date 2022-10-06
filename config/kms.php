@@ -118,8 +118,8 @@ return [
         [
             'image' => 'fons_w.png',
             'name' => 'Fons Winters',
-            'function' => 'Projectmanager',
-            'mail' => 'fons@komma.nl',
+            'function' => 'Technisch consultant',
+            'mail' => 'info@winters-online.nl',
         ],
 //        [
 //            'image' => 'marielle_v.png',
@@ -139,12 +139,12 @@ return [
 //            'function' => 'Chef kwaliteit',
 //            'mail' => 'mike@komma.nl',
 //        ],
-        [
-            'image' => 'pascal_l.png',
-            'name' => 'Pascal Lemmen',
-            'function' => 'Webdeveloper',
-            'mail' => 'pascal@komma.nl',
-        ],
+//        [
+//            'image' => 'pascal_l.png',
+//            'name' => 'Pascal Lemmen',
+//            'function' => 'Webdeveloper',
+//            'mail' => 'pascal@komma.nl',
+//        ],
 //        [
 //            'image' => 'rob_h.png',
 //            'name' => 'Rob Hoeben',
@@ -175,12 +175,12 @@ return [
 //            'function' => 'Commercieel directeur',
 //            'mail' => 'stef@komma.nl',
 //        ],
-        [
-            'image' => 'toon_s.png',
-            'name' => 'Toon Schuurmans',
-            'function' => 'Webdeveloper',
-            'mail' => 'toon@komma.nl',
-        ],
+//        [
+//            'image' => 'toon_s.png',
+//            'name' => 'Toon Schuurmans',
+//            'function' => 'Webdeveloper',
+//            'mail' => 'toon@komma.nl',
+//        ],
     ],
 
 ];

@@ -74,19 +74,19 @@ class SidebarMenuComposer
             ->setUrl(route('team_members.index'))
             ->setName(__('KMS::sidebarMenu.team_members')));
 
-        $kmsMenu->push((new KmsMenuItem())
-            ->setName(__('KMS::sidebarMenu.vacancies'))
-            ->setSubItems(collect([
-                (new KmsMenuItem())
-                    ->setModelSlug('vacancy_process')
-                    ->setUrl(route('vacancy_process.index'))
-                    ->setName(__('KMS::sidebarMenu.vacancy_process')),
-
-                (new KmsMenuItem())
-                    ->setModelSlug('vacancies')
-                    ->setUrl(route('vacancies.index'))
-                    ->setName(__('KMS::sidebarMenu.vacancies'))
-            ])));
+//        $kmsMenu->push((new KmsMenuItem())
+//            ->setName(__('KMS::sidebarMenu.vacancies'))
+//            ->setSubItems(collect([
+//                (new KmsMenuItem())
+//                    ->setModelSlug('vacancy_process')
+//                    ->setUrl(route('vacancy_process.index'))
+//                    ->setName(__('KMS::sidebarMenu.vacancy_process')),
+//
+//                (new KmsMenuItem())
+//                    ->setModelSlug('vacancies')
+//                    ->setUrl(route('vacancies.index'))
+//                    ->setName(__('KMS::sidebarMenu.vacancies'))
+//            ])));
 
         $kmsMenu->push((new KmsMenuItem())->setIsSeparator(true));
 

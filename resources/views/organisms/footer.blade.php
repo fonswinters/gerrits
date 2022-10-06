@@ -56,6 +56,9 @@
                 </ul>
             </nav>
 
+            <div class="badges">
+                <img src="/img/leerbedrijf.png" alt="Erkend leerbedrijf" class="badge">
+            </div>
 
         </div>
     </div>

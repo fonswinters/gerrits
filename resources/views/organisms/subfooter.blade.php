@@ -22,6 +22,6 @@
             </ul>
         </nav>
 
-        <div class="o-subfooter__trademark">@include('components.trademark')</div>
+{{--        <div class="o-subfooter__trademark">@include('components.trademark')</div>--}}
     </div>
 </div>
